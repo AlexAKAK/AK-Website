@@ -1,22 +1,17 @@
 //import createComment from "./utilities/createComment"
-const commentData = [
-    {
-        author: "AK#7755",
-        content: "Hello World!"
-    },
-    {
-        author: "AK#7755",
-        content: "Hello World!"
-    }
-]
+// get the data from the api
+
 
 const commentSection = document.getElementById('commentSection')
 
 
-function renderComments() {
+async function renderComments() {
+    const commentDataRequest = await fetch('http://localhost:3000/view_comments')
+    const commentDataJSON = await commentDataRequest.json()
+
     let comment;
-    for (let i = 0; i < commentData.length; i++) {
-        comment = createComment(commentData[i].author, commentData[i].content)
+    for (let i = 0; i < commentDataJSON.length; i++) {
+        comment = createComment(commentDataJSON[i].author, commentDataJSON[i].content)
         commentSection.appendChild(comment)
     } 
 }
@@ -31,6 +26,8 @@ renderComments()
  * @returns HTMLElement 
  */
 function createComment(author, content) {
+
+
     const div = document.createElement('div')
     const authorTextArea = createAuthorTextArea(author)
     const contentTextArea = createContentTextArea(content)

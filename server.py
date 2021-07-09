@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 
 app = Flask(__name__)
@@ -31,7 +31,14 @@ def send_comment():
     json.dump(file_contents, file)
     file.close()
 
-    return 'Comment Sent!'
+    return redirect("http://localhost:3000/chat")
+
+
+
+@app.route('/view_comments', methods = ['get'])
+def view_comments():
+    file = open('./data/comments.json', 'r')
+    return file.read()
 
 
 app.run(host='localhost', port=3000)
