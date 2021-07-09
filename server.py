@@ -1,7 +1,16 @@
 from flask import Flask, render_template, request, redirect
 import json
 
+HOST = "localhost"
+PORT = 3000
+
 app = Flask(__name__)
+
+
+def getURL (dir: str) -> str:
+    global HOST
+    global PORT
+    return f"http://{HOST}:{str(PORT)}/{dir}"
 
 
 #pages
@@ -31,7 +40,7 @@ def send_comment():
     json.dump(file_contents, file)
     file.close()
 
-    return redirect("http://localhost:3000/chat")
+    return redirect(getURL('chat'))
 
 
 
@@ -41,4 +50,4 @@ def view_comments():
     return file.read()
 
 
-app.run(host='localhost', port=3000)
+app.run(host= HOST, port=PORT)

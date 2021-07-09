@@ -1,12 +1,23 @@
 //import createComment from "./utilities/createComment"
 // get the data from the api
 
+const HOST = 'localhost'
+const PORT = 3000
+
+/**
+ * 
+ * @param {string} dir 
+ * @returns {string}
+ */
+function getURL(dir) {
+    return `http://${HOST}:${PORT.toString()}/${dir}`
+}
 
 const commentSection = document.getElementById('commentSection')
 
 
 async function renderComments() {
-    const commentDataRequest = await fetch('http://localhost:3000/view_comments')
+    const commentDataRequest = await fetch(getURL('view_comments'))
     const commentDataJSON = await commentDataRequest.json()
     commentDataJSON.reverse()
 
