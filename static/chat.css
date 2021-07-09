@@ -46,6 +46,51 @@ html {
 }
 
 #input-comment {
-    background-color: aquamarine;
     border-radius: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(16, 223, 33);
+}
+
+#input-comment .author-input {
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    resize: none;
+    width: 98%;
+    padding:1%;
+    background-color: antiquewhite;
+    min-height: 10px;
+    max-height: 20px;
+}
+
+#input-comment .content-input {
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    resize: none;
+    width: 98%;
+    padding:1%;
+    background-color: azure;
+    min-height: 10px;
+    max-height: 100px;
+}
+
+#input-comment p {
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: larger;
+}
+
+#input-comment .submit-comment-button {
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    background-color: grey;
+    width: 100px;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
 }
