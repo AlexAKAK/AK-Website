@@ -8,6 +8,7 @@ const commentSection = document.getElementById('commentSection')
 async function renderComments() {
     const commentDataRequest = await fetch('http://localhost:3000/view_comments')
     const commentDataJSON = await commentDataRequest.json()
+    commentDataJSON.reverse()
 
     let comment;
     for (let i = 0; i < commentDataJSON.length; i++) {
