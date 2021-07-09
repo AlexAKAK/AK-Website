@@ -64,6 +64,7 @@ function createAuthorTextArea(author) {
     let textarea = document.createElement('textarea')
     textarea.appendChild(document.createTextNode(author))
     textarea.className = 'author'
+    textarea.readOnly = true
     return textarea
 }
 
@@ -76,5 +77,6 @@ function createContentTextArea(content) {
     let textarea = document.createElement('textarea')
     textarea.appendChild(document.createTextNode(content))
     textarea.className = 'content'
+    textarea.readOnly = true
     return textarea
 }

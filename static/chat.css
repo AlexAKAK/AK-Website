@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(47, 6, 100);
+    background-color: grey;
 }
 
 .comment {
@@ -7,10 +7,12 @@ html {
     background: gray;
     padding: 20px;
     width: 200px;
-    height: 150px;
+    min-height: 10px;
     border-style: solid;
     border-color: lightcoral;
     display: -moz-stack;
+    float: left;
+    resize: none;
     
 }
 
@@ -21,13 +23,12 @@ html {
     border-color: black;
     border-radius: 10px;
     resize: none;
-    height: 100px;
     width: 98%;
     padding:1%;
     background-color: antiquewhite;
     min-height: 10px;
     max-height: 20px;
-
+    
 }
 
 .content {
@@ -36,11 +37,15 @@ html {
     border-color: black;
     border-radius: 10px;
     resize: none;
-    height: 100px;
     width: 98%;
     padding:1%;
     background-color: azure;
     min-height: 10px;
-    max-height: 10000px;
+    max-height: 100px;
    
+}
+
+#input-comment {
+    background-color: aquamarine;
+    border-radius: 20px;
 }
