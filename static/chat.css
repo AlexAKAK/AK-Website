@@ -20,7 +20,7 @@ html {
     font-size: x-large;
     border-style: solid;
     border-color: #7289da;
-
+    border-radius: 10px;
     resize: none;
     width: 98%;
     padding:1%;
@@ -37,7 +37,7 @@ html {
     font-size: larger;
     border-style: solid;
     border-color: #7289da;
-
+    border-radius: 10px;
     resize: none;
     width: 98%;
     padding:1%;
@@ -61,6 +61,7 @@ html {
     border-color: black;
     border-radius: 10px;
     resize: none;
+    background-color:#7289da;
     width: 98%;
     padding:1%;
     background-color: anrtiquewhite;
@@ -72,6 +73,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
     border-color: black;
+    background-color: black;
     border-radius: 10px;
     resize: none;
     width: 98%;
