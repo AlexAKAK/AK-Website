@@ -1,7 +1,7 @@
 //import createComment from "./utilities/createComment"
 // get the data from the api
 
-const HOST = 'localhost'
+const HOST = '192.168.1.71'
 const PORT = 3000
 let commentsNumber = 0;
 

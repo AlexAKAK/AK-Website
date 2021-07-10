@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <link rel="stylesheet" href="./../static/chat.css">
+    <link rel="stylesheet" href="./../static/nav.css">
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/chat">Chat</a> |
+    </nav>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +14,8 @@
     <title>AK Website</title>
 </head>
 <body>
-    <form id = "input-comment" action = "http://localhost:3000/send_comment" method = "post">
+
+    <form id = "input-comment" action = "http://192.168.1.71:3000/send_comment" method = "post">
         <p>Name</p>
         <p><input class = "author-input" type = "text" name = "author" /></p>
         <p>Content</p>

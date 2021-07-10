@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import json
 
-HOST = "localhost"
+HOST = "192.168.1.71"
 PORT = 3000
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ def getURL (dir: str) -> str:
 @app.route('/')
 def index():
     print('index')
-    return 'index'
+    return render_template('index.html')
 
 
 @app.route('/chat')
