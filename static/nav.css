@@ -1,8 +1,25 @@
 nav {
     font-family: 'Courier New', Courier, monospace;
-    font-size: x-large;
-    border-radius: 10px;
+    font-size: xx-large;
+    border-radius: 100px;
     border-style: solid;
     border-color: black;
-    color: aquamarine;
+    height: 100px;
+    min-width: 50px;
+    text-align: center;
+    background-color: #2c2f33;
+}
+
+nav a {
+    border-radius: 10px;
+    border-color: #7289da;
+    border-style: solid;
+    top: 30px;
+    
+    position: relative;
+}
+
+nav a:link, nav a:visited {
+    color: white;
+    background-color:#7289da;
 }

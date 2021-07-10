@@ -6,6 +6,7 @@
         <a href="/">Home</a> |
         <a href="/chat">Chat</a> |
     </nav>
+    <br><br>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +16,16 @@
 </head>
 <body>
 
-    <form id = "input-comment" action = "http://192.168.1.71:3000/send_comment" method = "post">
+    <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+    <form id = "input-comment" action = "http://localhost:3000/send_comment" method = "post" target="hiddenFrame">
         <p>Name</p>
         <p><input class = "author-input" type = "text" name = "author" /></p>
         <p>Content</p>
         <p><input class = "content-input" type = "text" name = "content" /></p>
         <p><input class = "submit-comment-button" type = "submit" value = "submit" /></p>
      </form>
+     <br>
+     <br>
     <div id = "commentSection">
         
 

@@ -1,7 +1,15 @@
 //import createComment from "./utilities/createComment"
 // get the data from the api
 
-const HOST = '192.168.1.71'
+
+/**
+ * name color selector
+ * better nav
+ * 
+ * 
+ */
+
+const HOST = 'localhost'
 const PORT = 3000
 let commentsNumber = 0;
 
@@ -26,6 +34,9 @@ async function renderComments() {
     for (let i = 0; i < commentDataJSON.length; i++) {
         comment = createComment(commentDataJSON[i].author, commentDataJSON[i].content)
         commentSection.appendChild(comment)
+        // adding space
+        const breakElement = document.createElement('br')
+        commentSection.appendChild(breakElement)
     } 
 }
 
@@ -35,9 +46,6 @@ async function renderComments() {
 async function checkIfNewComments() {
     const _commentDataRequest = await fetch(getURL('view_comments'))
     const _commentDataJSON = await _commentDataRequest.json()
-
-    console.log(_commentDataJSON.length)
-    console.log(commentsNumber)
 
     if (_commentDataJSON.length != commentsNumber) {
         commentsNumber = _commentDataJSON.length
@@ -50,7 +58,6 @@ function renderingCommentsLoop() {
     renderComments() // initial render
     setInterval(async () => {
         const areNewComments = await checkIfNewComments()
-        console.log(areNewComments)
         if (areNewComments) {
             commentSection.innerHTML = ""
             renderComments()   
@@ -77,6 +84,7 @@ function createComment(author, content) {
 
     div.appendChild(authorTextArea)
     div.appendChild(contentTextArea)
+    // create a break
     
     div.className = 'comment'
 
@@ -109,4 +117,12 @@ function createContentTextArea(content) {
     textarea.className = 'content'
     textarea.readOnly = true
     return textarea
+}
+
+const submitButton = document.getElementsByClassName('submit-comment-button')[0]
+const contentInputTextArea = document.getElementsByClassName('content-input')[0]
+submitButton.onclick = () => {
+    setTimeout(() => {
+        contentInputTextArea.value = ""
+    }, 1000)
 }

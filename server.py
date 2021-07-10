@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import json
 
-HOST = "192.168.1.71"
+HOST = "localhost"
 PORT = 3000
 
 app = Flask(__name__)
