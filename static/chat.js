@@ -3,6 +3,7 @@
 
 const HOST = 'localhost'
 const PORT = 3000
+let commentsNumber = 0;
 
 /**
  * 
@@ -20,7 +21,7 @@ async function renderComments() {
     const commentDataRequest = await fetch(getURL('view_comments'))
     const commentDataJSON = await commentDataRequest.json()
     commentDataJSON.reverse()
-
+    commentsNumber = commentDataJSON.length
     let comment;
     for (let i = 0; i < commentDataJSON.length; i++) {
         comment = createComment(commentDataJSON[i].author, commentDataJSON[i].content)
@@ -28,7 +29,36 @@ async function renderComments() {
     } 
 }
 
-renderComments()
+/**
+ * @returns {Promise<boolean>}
+ */
+async function checkIfNewComments() {
+    const _commentDataRequest = await fetch(getURL('view_comments'))
+    const _commentDataJSON = await _commentDataRequest.json()
+
+    console.log(_commentDataJSON.length)
+    console.log(commentsNumber)
+
+    if (_commentDataJSON.length != commentsNumber) {
+        commentsNumber = _commentDataJSON.length
+        return true
+    }
+    return false
+}
+
+function renderingCommentsLoop() {
+    renderComments() // initial render
+    setInterval(async () => {
+        const areNewComments = await checkIfNewComments()
+        console.log(areNewComments)
+        if (areNewComments) {
+            commentSection.innerHTML = ""
+            renderComments()   
+        }
+    }, 2000)
+}
+
+renderingCommentsLoop()
 
 /**
  * 
